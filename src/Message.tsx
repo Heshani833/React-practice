@@ -1,5 +1,7 @@
+import Alert from "./Alert";
+
 function Message() {
-  return <h1>Message</h1>;
+  return <Alert/>;
 }
 
 export default Message;
