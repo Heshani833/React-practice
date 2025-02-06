@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ListGroup = () => {
   const items: String[] = [
@@ -9,6 +9,10 @@ const ListGroup = () => {
     "Kurunagala",
   ];
   const foods: String[] = ["Noodles", "Rice", "Milkrice", "Cake", "Icecream"];
+
+  //let selectedIndex = 0;
+  //Hook
+  const [selectedIndex, setselectedIndex] = useState(0);
   return (
     <>
       <ul className="list-group">
@@ -20,19 +24,30 @@ const ListGroup = () => {
         {foods.length === 0 && <p>Item are not found</p>}
         {items.map((item, index) => {
           return (
-            <li key={index} className="list-group-item">
+            <li
+              key={index}
+              className={
+                selectedIndex === index
+                  ? "list-group-item active"
+                  : "list-group-item "
+              }
+              onClick={() => {
+                setselectedIndex(index);
+                console.log(selectedIndex);
+              }}
+            >
               {item}
             </li>
           );
         })}
 
-        {foods.map((foods, index) => {
+        {/* {foods.map((foods, index) => {
           return (
-            <li key={index} className="list-group-item">
+            <li key={index} className="list-group-item" onClick={handleClick}>
               {foods}
             </li>
           );
-        })}
+        })} */}
       </ul>
     </>
   );
