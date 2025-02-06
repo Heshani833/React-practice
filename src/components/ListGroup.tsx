@@ -1,55 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-interface Props {
-  items: string[];
-  foods: string[];
-}
-
-const ListGroup = ({ items, foods }: Props) => {
-  const [selectedIndex, setselectedIndex] = useState(0);
-  const [foodie, setFood] = useState(0);
-
+const ListGroup = () => {
   return (
     <>
       <ul className="list-group">
-        {items.length === 0 ? (
-          <p>Items are not found</p>
-        ) : (
-          <p>Items are found</p>
-        )}
-        {foods.length === 0 && <p>Items are not found</p>}
-
-        {items.map((item, index) => (
-          <li
-            key={index}
-            className={
-              selectedIndex === index
-                ? "list-group-item active"
-                : "list-group-item"
-            }
-            onClick={() => {
-              setselectedIndex(index);
-              console.log("Updated Index:", index);
-            }}
-          >
-            {item}
-          </li>
-        ))}
-
-        {foods.map((food, index) => (
-          <li
-            key={index}
-            className={
-              foodie === index ? "list-group-item active" : "list-group-item"
-            }
-            onClick={() => {
-              setFood(index);
-              console.log("Updated Food Index:", index);
-            }}
-          >
-            {food}
-          </li>
-        ))}
+        <li className="list-group-item">A second item</li>
+        <li className="list-group-item">A third item</li>
+        <li className="list-group-item">A fourth item</li>
+        <li className="list-group-item">And a fifth one</li>
       </ul>
     </>
   );
