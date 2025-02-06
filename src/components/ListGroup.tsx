@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 
-const ListGroup = () => {
-  const items: String[] = [
-    "Colombo",
-    "Kandy",
-    "Galle",
-    "Mathara",
-    "Kurunagala",
-  ];
-  const foods: String[] = ["Noodles", "Rice", "Milkrice", "Cake", "Icecream"];
+interface Props {
+  items: string[];
+  foods: string[];
+}
 
-  //let selectedIndex = 0;
-  //Hook
+const ListGroup = ({ items, foods }: Props) => {
   const [selectedIndex, setselectedIndex] = useState(0);
+  const [foodie, setFood] = useState(0);
+
   return (
     <>
       <ul className="list-group">
@@ -21,33 +17,39 @@ const ListGroup = () => {
         ) : (
           <p>Items are found</p>
         )}
-        {foods.length === 0 && <p>Item are not found</p>}
-        {items.map((item, index) => {
-          return (
-            <li
-              key={index}
-              className={
-                selectedIndex === index
-                  ? "list-group-item active"
-                  : "list-group-item "
-              }
-              onClick={() => {
-                setselectedIndex(index);
-                console.log(selectedIndex);
-              }}
-            >
-              {item}
-            </li>
-          );
-        })}
+        {foods.length === 0 && <p>Items are not found</p>}
 
-        {/* {foods.map((foods, index) => {
-          return (
-            <li key={index} className="list-group-item" onClick={handleClick}>
-              {foods}
-            </li>
-          );
-        })} */}
+        {items.map((item, index) => (
+          <li
+            key={index}
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            onClick={() => {
+              setselectedIndex(index);
+              console.log("Updated Index:", index);
+            }}
+          >
+            {item}
+          </li>
+        ))}
+
+        {foods.map((food, index) => (
+          <li
+            key={index}
+            className={
+              foodie === index ? "list-group-item active" : "list-group-item"
+            }
+            onClick={() => {
+              setFood(index);
+              console.log("Updated Food Index:", index);
+            }}
+          >
+            {food}
+          </li>
+        ))}
       </ul>
     </>
   );

@@ -1,10 +1,18 @@
 import ListGroup from "./components/ListGroup";
-import Card from "./components/Card";
 
 function App() {
+  const items: string[] = [
+    "Colombo",
+    "Kandy",
+    "Galle",
+    "Mathara",
+    "Kurunagala",
+  ];
+  const foods: string[] = ["Noodles", "Rice", "Milkrice", "Cake", "Icecream"];
+
   return (
     <>
-      <ListGroup />
+      <ListGroup items={items} foods={foods} />
     </>
   );
 }
