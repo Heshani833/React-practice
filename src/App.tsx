@@ -1,24 +1,20 @@
-import Card from "./components/Card";
-import ListGroup from "./components/ListGroup";
+import { useState } from "react";
 
 function App() {
-  const items: string[] = ["Colombo", "Kandy", "Galle", "Matara", "Badulla"];
-  const foods: string[] = ["Milk rice", "Noodles", "Cake", "Icecream", "Juice"];
-  const handleSelectedItem = (item: string) => {
-    console.log(item);
-  };
-    const handleSelectedFood = (food: string) => {
-      console.log(food);
-  
-  };
+  // const [firstName, setfiratName] = useState("Heshani");
+  // const [lastName, setlastName] = useState("Shehana");
+
+  const [person, setPerson] = useState({
+    firstName: "Heshani",
+    lastName: "Shehana",
+    address: "Kandy",
+  });
+
+  const [isloarding, setIsLoarding] = useState(false);
+
   return (
     <>
-      <ListGroup
-        items={items}
-        foods={foods}
-        onSelectedItem={(item) => handleSelectedItem(item)}
-        onSelectedFood={(food) => handleSelectedFood(food)}
-      />
+      {person.firstName} {person.lastName} {person.address}
     </>
   );
 }

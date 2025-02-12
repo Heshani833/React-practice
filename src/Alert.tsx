@@ -1,7 +1,11 @@
 import React from "react";
 
-const Alert = () => {
-  return <h1>This is an alert</h1>;
+interface props {
+  children: string;
+}
+
+const Alert = ({ children }: props) => {
+  return <div>{children}</div>;
 };
 
 export default Alert;
