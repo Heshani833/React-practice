@@ -1,13 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ListGroup = () => {
+interface props {
+  items: string[];
+  foods: string[];
+  //pasing function through props
+  onSelectedItem: (item: string) => void;
+  onSelectedFood: (food: string) => void;
+}
+
+//component function
+const ListGroup = ({ items, foods, onSelectedItem, onSelectedFood }: props) => {
+  //let selectedIndex = 0;
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedFood, setSelectedFood] = useState(0);
   return (
     <>
       <ul className="list-group">
-        <li className="list-group-item">A second item</li>
-        <li className="list-group-item">A third item</li>
-        <li className="list-group-item">A fourth item</li>
-        <li className="list-group-item">And a fifth one</li>
+        {items.length === 0 ? (
+          <p>Items are not founf</p>
+        ) : (
+          <p>Items are found</p>
+        )}
+        {foods.length === 0 && <p>Items are not found</p>}
+
+        {items.map((item, index) => {
+          return (
+            <li
+              key={index}
+              className={
+                selectedIndex === index
+                  ? "list-group-item active"
+                  : "list-group-item"
+              }
+              onClick={() => {
+                setSelectedIndex(index);
+                onSelectedItem(item);
+              }}
+            >
+              {item}
+            </li>
+          );
+        })}
+        {foods.map((food, index) => {
+          return (
+            <li
+              key={index}
+              className={
+                selectedFood === index
+                  ? "list-group-item active"
+                  : "list-group-item"
+              }
+              onClick={() => {
+                setSelectedFood(index);
+                onSelectedFood(food);
+              }}
+            >
+              {food}
+            </li>
+          );
+        })}
       </ul>
     </>
   );
