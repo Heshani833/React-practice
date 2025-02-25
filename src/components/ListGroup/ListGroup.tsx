@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import "./ListGroup.css";
 
 interface props {
   items: string[];
   foods: string[];
   //pasing function through props
-  onSelectedItem: (item: string) => void;
-  onSelectedFood: (food: string) => void;
+  // onSelectedItem: (item: string) => void;
+  // onSelectedFood: (food: string) => void;
 }
 
 //component function
-const ListGroup = ({ items, foods, onSelectedItem, onSelectedFood }: props) => {
+const ListGroup = ({ items, foods }: props) => {
   //let selectedIndex = 0;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -35,7 +36,6 @@ const ListGroup = ({ items, foods, onSelectedItem, onSelectedFood }: props) => {
               }
               onClick={() => {
                 setSelectedIndex(index);
-                onSelectedItem(item);
               }}
             >
               {item}
@@ -53,7 +53,6 @@ const ListGroup = ({ items, foods, onSelectedItem, onSelectedFood }: props) => {
               }
               onClick={() => {
                 setSelectedFood(index);
-                onSelectedFood(food);
               }}
             >
               {food}
