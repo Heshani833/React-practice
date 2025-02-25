@@ -12,7 +12,19 @@ function App() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-
-  return <ListGroup items={items} foods={foods} />;
+  const handleChangeName = () => {
+    const newPerson = {
+      firstName: "Shehana",
+      lastName: "Heshani",
+      address: "Colombo",
+    };
+    setPerson(newPerson);
+  };
+  return (
+    <>
+      <h1>{person.firstName}</h1>
+      <button onClick={handleChangeName}>Click</button>
+    </>
+  );
 }
 export default App;
