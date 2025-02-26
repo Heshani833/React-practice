@@ -13,11 +13,7 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const handleChangeName = () => {
-    const newPerson = {
-      ...person,
-      firstName: "Chanu",
-    };
-    setPerson(newPerson);
+    setPerson({ ...person, firstName: "Chanu" });
   };
   return (
     <>
