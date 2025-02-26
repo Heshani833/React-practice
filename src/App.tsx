@@ -15,10 +15,16 @@ function App() {
   const handleChangeName = () => {
     setPerson({ ...person, firstName: "Chanu" });
   };
+
+  const handleChangeCity = () => {
+    setPerson({ ...person, address: "Badulla" });
+  };
   return (
     <>
       <h1>{person.firstName}</h1>
       <button onClick={handleChangeName}>Click</button>
+      <h1>{person.address}</h1>
+      <button onClick={handleChangeCity}>Click</button>
     </>
   );
 }
