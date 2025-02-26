@@ -6,25 +6,31 @@ function App() {
   const [foods, setFoods] = useState(["Pizza", "Rice", "Ice Cream"]);
 
   const [person, setPerson] = useState({
-    firstName: "Heshani",
-    lastName: "Shehana",
-    address: "Colombo",
+    name: {
+      firstName: "Heshani",
+      lastName: "Shehana",
+    },
+    addres: {
+      name: "Colombo Road",
+      number: "2",
+    },
   });
 
   const [isLoading, setIsLoading] = useState(false);
   const handleChangeName = () => {
-    setPerson({ ...person, firstName: "Chanu" });
+    setPerson({
+      ...person,
+      name: {
+        ...person.name,
+        firstName: "Chanu",
+      },
+    });
   };
 
-  const handleChangeCity = () => {
-    setPerson({ ...person, address: "Badulla" });
-  };
   return (
     <>
-      <h1>{person.firstName}</h1>
+      <h1>{person.name.firstName}</h1>
       <button onClick={handleChangeName}>Click</button>
-      <h1>{person.address}</h1>
-      <button onClick={handleChangeCity}>Click</button>
     </>
   );
 }
