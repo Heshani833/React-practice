@@ -4,7 +4,7 @@ import ListGroup from "./components/ListGroup/ListGroup";
 function App() {
   const [tags, setTags] = useState(["tag1", "tag2", "tag3"]);
   const handleChangeTags = () => {
-    setTags([...tags, "tag4"]);
+    setTags(tags.filter((tag) => tag != "tag1"));
   };
 
   return (
