@@ -11,8 +11,11 @@ function App() {
       lastName: "Shehana",
     },
     addres: {
-      name: "Colombo Road",
-      number: "2",
+      country: "Sri Lanka",
+      street: {
+        streetName: "Colombo Road",
+        number: 2,
+      },
     },
   });
 
@@ -20,16 +23,19 @@ function App() {
   const handleChangeName = () => {
     setPerson({
       ...person,
-      name: {
-        ...person.name,
-        firstName: "Chanu",
+      addres: {
+        ...person.addres,
+        street: {
+          ...person.addres.street,
+          number: 19,
+        },
       },
     });
   };
 
   return (
     <>
-      <h1>{person.name.firstName}</h1>
+      <h1>{person.addres.street.number}</h1>
       <button onClick={handleChangeName}>Click</button>
     </>
   );
